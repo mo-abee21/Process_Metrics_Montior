@@ -1,10 +1,10 @@
-# 🔍 procinfo — Live Process Monitor via `/proc`
+#  procinfo — Live Process Monitor via `/proc`
 
 A Bash script that queries the Linux `/proc` filesystem to display real-time per-process stats — PID, command name, user, memory usage, CPU time, and thread count — for any running process matching a given pattern. Supports a continuous live-refresh mode for ongoing monitoring.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Features](#features)
 - [Usage](#usage)
@@ -17,7 +17,7 @@ A Bash script that queries the Linux `/proc` filesystem to display real-time per
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Pattern-based process filtering** — matches any running process whose command name contains the given pattern
 - **False-positive filtering** — cross-checks `ps` results against `/proc/<pid>/comm` to exclude processes that merely have the pattern in their arguments (e.g., `vim file.java` won't show up when searching for `java`)
@@ -27,7 +27,7 @@ A Bash script that queries the Linux `/proc` filesystem to display real-time per
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ```bash
 ./procinfo.sh [-t secs] <pattern>
@@ -50,7 +50,7 @@ A Bash script that queries the Linux `/proc` filesystem to display real-time per
 
 ---
 
-## 📊 Output Format
+##  Output Format
 
 ```
                  PID                  CMD                 USER                  MEM                  CPU              THREADS
@@ -69,7 +69,7 @@ A Bash script that queries the Linux `/proc` filesystem to display real-time per
 
 ---
 
-## ⚙️ How It Works
+##  How It Works
 
 1. **Argument parsing** — accepts either 1 argument (`pattern`) or 3 arguments (`-t secs pattern`); prints usage and exits on anything else
 2. **Process discovery** — runs `ps -e -f | grep <pattern>` to find candidate PIDs and usernames
@@ -83,7 +83,7 @@ A Bash script that queries the Linux `/proc` filesystem to display real-time per
 
 ---
 
-## 🗂️ The `/proc` Filesystem
+##  The `/proc` Filesystem
 
 This script reads directly from `/proc`, Linux's virtual filesystem that exposes live kernel data as readable files. No external monitoring tools or elevated permissions are needed.
 
@@ -103,7 +103,7 @@ Memory (`VmRSS`) is reported in kB by the kernel and converted to MB by dividing
 
 ---
 
-## 🛡️ Error Handling
+##  Error Handling
 
 | Condition | Behavior |
 |---|---|
@@ -115,7 +115,7 @@ Memory (`VmRSS`) is reported in kB by the kernel and converted to MB by dividing
 
 ---
 
-## 📟 Examples
+##  Examples
 
 **Find all `vim` processes:**
 ```bash
